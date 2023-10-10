@@ -1,0 +1,54 @@
+@import './scss/colors.scss';
+@import './scss/fonts.scss';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: $darkNavy;
+}
+
+h1 {
+	color: $pink;
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 120px;
+	letter-spacing: -5px;
+}
+
+h2 {
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 34px;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 15px;
+	text-transform: uppercase;
+}
+
+h4 {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+}
+
+.p1 {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 18px;
+	opacity: 0.6;
+}
+
+.p2 {
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 14px;
+	opacity: 0.4;
+}
