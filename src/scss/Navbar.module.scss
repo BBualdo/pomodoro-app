@@ -1,0 +1,27 @@
+@import './colors.scss';
+@import './fonts.scss';
+@import './mixins.scss';
+
+.navbar {
+	align-items: center;
+	background-color: $veryDarkNavy;
+	border-radius: 32px;
+	display: flex;
+	margin-top: 55px;
+	padding: 8px;
+
+	div {
+		@include body1;
+		border-radius: 26px;
+		cursor: pointer;
+		font-family: $kumbh;
+		opacity: 0.4;
+		padding: 16px 26px;
+
+		&.active {
+			background-color: $red;
+			color: $darkNavy;
+			opacity: 1;
+		}
+	}
+}

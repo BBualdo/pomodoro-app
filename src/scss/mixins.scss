@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+@mixin body1 {
+	color: $gray;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 18px;
+}
+
+@mixin body2 {
+	color: $gray;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 14px;
+}

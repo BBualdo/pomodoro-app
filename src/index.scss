@@ -7,7 +7,7 @@
 	padding: 0;
 }
 
-body {
+#root {
 	align-items: center;
 	background-color: $darkNavy;
 	display: flex;
@@ -42,18 +42,4 @@ h4 {
 	font-weight: 700;
 	letter-spacing: 5px;
 	text-transform: uppercase;
-}
-
-.p1 {
-	font-size: 14px;
-	font-weight: 700;
-	line-height: 18px;
-	opacity: 0.6;
-}
-
-.p2 {
-	font-size: 12px;
-	font-weight: 700;
-	line-height: 14px;
-	opacity: 0.4;
 }
