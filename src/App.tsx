@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<>
+		<Fragment>
 			<Header />
 			<Navbar />
-		</>
+		</Fragment>
 	);
 }
 
