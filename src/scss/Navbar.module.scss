@@ -17,6 +17,7 @@
 		font-family: $kumbh;
 		opacity: 0.4;
 		padding: 16px 26px;
+		transition: background-color 0.8s ease;
 
 		&.active {
 			background-color: $red;
