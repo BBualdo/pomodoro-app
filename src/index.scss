@@ -8,7 +8,12 @@
 }
 
 body {
+	align-items: center;
 	background-color: $darkNavy;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 100vh;
 }
 
 h1 {
