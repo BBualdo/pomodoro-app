@@ -17,10 +17,6 @@ function App() {
 		setSettings(newSettings);
 	};
 
-	useEffect(() => {
-		console.log(settings);
-	}, [settings]);
-
 	return (
 		<Fragment>
 			<Header />

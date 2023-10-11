@@ -15,3 +15,10 @@ export enum Colors {
 	CYAN = 'CYAN',
 	PINK = 'PINK',
 }
+
+export enum Status {
+	NOT_STARTED = 'START',
+	RUNNING = 'PAUSE',
+	PAUSED = 'RESUME',
+	FINISHED = 'RESTART',
+}
