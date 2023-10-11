@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Timers from '../ts/enums';
+import { Timers } from '../ts/enums';
 import styles from '../scss/Navbar.module.scss';
 
 const Navbar = () => {
