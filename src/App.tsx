@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Timer from './components/Timer';
+import Timers from './components/Timers';
 import Settings from './components/Settings';
 import { Colors, Fonts } from './ts/enums';
 import { MainSettings } from './ts/interfaces';
@@ -29,7 +29,7 @@ function App() {
 			<Header />
 			<SettingsContext.Provider value={settings}>
 				<Navbar />
-				<Timer />
+				<Timers />
 				<Settings settings={settings} updateSettings={updateSettings} />
 			</SettingsContext.Provider>
 		</Fragment>

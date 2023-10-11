@@ -1,4 +1,4 @@
-export enum Timers {
+export enum Timer {
 	POMODORO = 'POMODORO',
 	SHORT_BREAK = 'SHORT',
 	LONG_BREAK = 'LONG',
