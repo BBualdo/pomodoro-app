@@ -35,8 +35,14 @@
 	}
 
 	.action {
+		background-color: transparent;
+		border: none;
 		color: $gray;
 		cursor: pointer;
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 15px;
+		text-transform: uppercase;
 		transition: color 0.15s ease;
 	}
 }
