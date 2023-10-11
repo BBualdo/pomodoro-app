@@ -6,7 +6,7 @@ const Time = () => {
 	return (
 		<div className={styles.time__container}>
 			<h1 className={styles.time}>00:00</h1>
-			<h3 className={styles.action}>Restart</h3>
+			<h3 className={styles.action}>Start</h3>
 		</div>
 	);
 };

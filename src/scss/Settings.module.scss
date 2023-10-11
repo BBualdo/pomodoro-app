@@ -1,0 +1,51 @@
+@import './colors.scss';
+@import './fonts.scss';
+
+.image {
+	cursor: pointer;
+	fill: $gray;
+	margin-top: 62px;
+	opacity: 0.5;
+	transition: all 0.1s ease;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.backdrop {
+	background-color: black;
+	bottom: 0;
+	opacity: 0.5;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.settings {
+	background-color: white;
+	border-radius: 25px;
+	height: 464px;
+	position: fixed;
+	top: 155px;
+	width: 540px;
+	z-index: 3;
+
+	.header {
+		align-items: center;
+		border-bottom: 1px solid #e3e1e1;
+		display: flex;
+		justify-content: space-between;
+		padding: 34px 40px 31px 40px;
+
+		h2 {
+			color: $veryDarkNavy;
+			font-family: $kumbh;
+		}
+
+		img {
+			cursor: pointer;
+		}
+	}
+}
