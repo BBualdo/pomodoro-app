@@ -10,7 +10,7 @@ export enum Fonts {
 	SPACE,
 }
 
-export enum Color {
+export enum Colors {
 	RED,
 	CYAN,
 	PINK,

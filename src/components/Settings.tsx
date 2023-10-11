@@ -1,6 +1,9 @@
 import { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import { Fonts, Colors } from '../ts/enums';
+import { SettingsInterface } from '../ts/interfaces';
+
 import xIcon from '../assets/icon-close.svg';
 
 import styles from '../scss/Settings.module.scss';
@@ -9,7 +12,7 @@ const Backdrop = () => {
 	return <div className={styles.backdrop} />;
 };
 
-const SettingsOverlay = (props: { hideSettings: () => void }) => {
+const SettingsOverlay = (props: SettingsInterface) => {
 	return (
 		<div className={styles.settings}>
 			<div className={styles.header}>
@@ -37,9 +40,30 @@ const SettingsOverlay = (props: { hideSettings: () => void }) => {
 				<div className={styles.font__picker}>
 					<h4>Font</h4>
 					<div className={styles.buttons}>
-						<button className={styles.kumbh}>Aa</button>
-						<button className={styles.roboto}>Aa</button>
-						<button className={styles.space}>Aa</button>
+						<button
+							onClick={() => props.onFontChange(Fonts.KUMBH)}
+							className={`${styles.kumbh} ${
+								props.font === Fonts.KUMBH ? styles.active : ''
+							}`}
+						>
+							Aa
+						</button>
+						<button
+							onClick={() => props.onFontChange(Fonts.ROBOTO)}
+							className={`${styles.roboto} ${
+								props.font === Fonts.ROBOTO ? styles.active : ''
+							}`}
+						>
+							Aa
+						</button>
+						<button
+							onClick={() => props.onFontChange(Fonts.SPACE)}
+							className={`${styles.space} ${
+								props.font === Fonts.SPACE ? styles.active : ''
+							}`}
+						>
+							Aa
+						</button>
 					</div>
 				</div>
 				<div className={styles.color__picker}>
@@ -74,6 +98,8 @@ const SettingsIcon = (props: { displaySettings: () => void }) => {
 
 const Settings = () => {
 	const [showSettings, setShowSettings] = useState(false);
+	const [selectedFont, setSelectedFont] = useState(Fonts.KUMBH);
+	const [selectedColor, setSelectedColor] = useState(Colors.RED);
 
 	const displaySettings = () => {
 		setShowSettings(true);
@@ -81,6 +107,14 @@ const Settings = () => {
 
 	const hideSettings = () => {
 		setShowSettings(false);
+	};
+
+	const fontChangeHandler = (id: Fonts) => {
+		setSelectedFont(id);
+	};
+
+	const colorChangeHandler = (id: Colors) => {
+		setSelectedColor(id);
 	};
 
 	return (
@@ -92,7 +126,11 @@ const Settings = () => {
 				)}
 			{showSettings &&
 				ReactDOM.createPortal(
-					<SettingsOverlay hideSettings={hideSettings} />,
+					<SettingsOverlay
+						hideSettings={hideSettings}
+						font={selectedFont}
+						onFontChange={(id: Fonts) => fontChangeHandler(id)}
+					/>,
 					document.getElementById('overlay')!,
 				)}
 			<SettingsIcon displaySettings={displaySettings} />
