@@ -69,9 +69,24 @@ const SettingsOverlay = (props: SettingsInterface) => {
 				<div className={styles.color__picker}>
 					<h4>Color</h4>
 					<div className={styles.buttons}>
-						<button className={styles.red}></button>
-						<button className={styles.cyan}></button>
-						<button className={styles.pink}></button>
+						<button
+							onClick={() => props.onColorChange(Colors.RED)}
+							className={styles.red}
+						>
+							{props.color === Colors.RED ? '✓' : ''}
+						</button>
+						<button
+							onClick={() => props.onColorChange(Colors.CYAN)}
+							className={styles.cyan}
+						>
+							{props.color === Colors.CYAN ? '✓' : ''}
+						</button>
+						<button
+							onClick={() => props.onColorChange(Colors.PINK)}
+							className={styles.pink}
+						>
+							{props.color === Colors.PINK ? '✓' : ''}
+						</button>
 					</div>
 				</div>
 			</div>
@@ -130,6 +145,8 @@ const Settings = () => {
 						hideSettings={hideSettings}
 						font={selectedFont}
 						onFontChange={(id: Fonts) => fontChangeHandler(id)}
+						color={selectedColor}
+						onColorChange={(id: Colors) => colorChangeHandler(id)}
 					/>,
 					document.getElementById('overlay')!,
 				)}
