@@ -5,13 +5,13 @@ export enum Timers {
 }
 
 export enum Fonts {
-	KUMBH,
-	ROBOTO,
-	SPACE,
+	KUMBH = 'KUMBH',
+	ROBOTO = 'ROBOTO',
+	SPACE = 'SPACE',
 }
 
 export enum Colors {
-	RED,
-	CYAN,
-	PINK,
+	RED = 'RED',
+	CYAN = 'CYAN',
+	PINK = 'PINK',
 }

@@ -6,4 +6,5 @@ export interface SettingsInterface {
 	onFontChange: (id: Fonts) => void;
 	color: Colors;
 	onColorChange: (id: Colors) => void;
+	onApply: (id1: Fonts, id2: Colors) => void;
 }

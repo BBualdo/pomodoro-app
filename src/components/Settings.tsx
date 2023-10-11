@@ -91,7 +91,12 @@ const SettingsOverlay = (props: SettingsInterface) => {
 				</div>
 			</div>
 			<div className={styles.apply}>
-				<button className={styles.apply__button}>Apply</button>
+				<button
+					onClick={() => props.onApply(props.font, props.color)}
+					className={styles.apply__button}
+				>
+					Apply
+				</button>
 			</div>
 		</div>
 	);
@@ -112,6 +117,10 @@ const SettingsIcon = (props: { displaySettings: () => void }) => {
 };
 
 const Settings = () => {
+	const [settings, setSettings] = useState({
+		font: Fonts.KUMBH,
+		color: Colors.RED,
+	});
 	const [showSettings, setShowSettings] = useState(false);
 	const [selectedFont, setSelectedFont] = useState(Fonts.KUMBH);
 	const [selectedColor, setSelectedColor] = useState(Colors.RED);
@@ -132,6 +141,15 @@ const Settings = () => {
 		setSelectedColor(id);
 	};
 
+	const settingsChangeHandler = (id1: Fonts, id2: Colors) => {
+		hideSettings();
+		setSettings({
+			font: id1,
+			color: id2,
+		});
+		console.log(settings);
+	};
+
 	return (
 		<Fragment>
 			{showSettings &&
@@ -147,6 +165,9 @@ const Settings = () => {
 						onFontChange={(id: Fonts) => fontChangeHandler(id)}
 						color={selectedColor}
 						onColorChange={(id: Colors) => colorChangeHandler(id)}
+						onApply={(id1: Fonts, id2: Colors) =>
+							settingsChangeHandler(id1, id2)
+						}
 					/>,
 					document.getElementById('overlay')!,
 				)}
