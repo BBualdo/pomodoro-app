@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Fonts, Colors } from '../ts/enums';
-import { SettingsInterface } from '../ts/interfaces';
+import { SettingsInterface, MainSettings } from '../ts/interfaces';
 
 import xIcon from '../assets/icon-close.svg';
 
@@ -116,11 +116,10 @@ const SettingsIcon = (props: { displaySettings: () => void }) => {
 	);
 };
 
-const Settings = () => {
-	const [settings, setSettings] = useState({
-		font: Fonts.KUMBH,
-		color: Colors.RED,
-	});
+const Settings = (props: {
+	settings: MainSettings;
+	updateSettings: (settings: MainSettings) => void;
+}) => {
 	const [showSettings, setShowSettings] = useState(false);
 	const [selectedFont, setSelectedFont] = useState(Fonts.KUMBH);
 	const [selectedColor, setSelectedColor] = useState(Colors.RED);
@@ -143,11 +142,10 @@ const Settings = () => {
 
 	const settingsChangeHandler = (id1: Fonts, id2: Colors) => {
 		hideSettings();
-		setSettings({
+		props.updateSettings({
 			font: id1,
 			color: id2,
 		});
-		console.log(settings);
 	};
 
 	return (

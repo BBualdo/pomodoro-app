@@ -8,3 +8,8 @@ export interface SettingsInterface {
 	onColorChange: (id: Colors) => void;
 	onApply: (id1: Fonts, id2: Colors) => void;
 }
+
+export interface MainSettings {
+	font: Fonts;
+	color: Colors;
+}
