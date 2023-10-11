@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Timer from './components/Timer';
@@ -11,7 +11,14 @@ function App() {
 	const [settings, setSettings] = useState({
 		font: Fonts.KUMBH,
 		color: Colors.RED,
+		timers: {
+			pomodoro: 25,
+			shortBreak: 5,
+			longBreak: 15,
+		},
 	});
+
+	console.log(settings);
 
 	const updateSettings = (newSettings: MainSettings) => {
 		setSettings(newSettings);

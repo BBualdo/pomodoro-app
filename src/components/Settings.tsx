@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Fonts, Colors } from '../ts/enums';
@@ -25,15 +25,33 @@ const SettingsOverlay = (props: SettingsInterface) => {
 					<div className={styles.inputs}>
 						<div className={styles.container}>
 							<label>pomodoro</label>
-							<input type='number' min={1} max={60} defaultValue={25} />
+							<input
+								id='pomodoro'
+								type='number'
+								min={1}
+								max={60}
+								defaultValue={25}
+							/>
 						</div>
 						<div className={styles.container}>
 							<label>short break</label>
-							<input type='number' min={5} max={15} defaultValue={5} />
+							<input
+								id='shortBreak'
+								type='number'
+								min={5}
+								max={15}
+								defaultValue={5}
+							/>
 						</div>
 						<div className={styles.container}>
 							<label>long break</label>
-							<input type='number' min={10} max={30} defaultValue={15} />
+							<input
+								id='longBreak'
+								type='number'
+								min={10}
+								max={30}
+								defaultValue={15}
+							/>
 						</div>
 					</div>
 				</div>
@@ -123,6 +141,11 @@ const Settings = (props: {
 	const [showSettings, setShowSettings] = useState(false);
 	const [selectedFont, setSelectedFont] = useState(Fonts.KUMBH);
 	const [selectedColor, setSelectedColor] = useState(Colors.RED);
+	// const [selectedTimers, setSelectedTimers] = useState({
+	// 	pomodoro:,
+	// 	shortBreak:,
+	// 	longBreak:
+	// })
 
 	const displaySettings = () => {
 		setShowSettings(true);
@@ -145,6 +168,11 @@ const Settings = (props: {
 		props.updateSettings({
 			font: id1,
 			color: id2,
+			timers: {
+				pomodoro: 25,
+				shortBreak: 5,
+				longBreak: 15,
+			},
 		});
 	};
 

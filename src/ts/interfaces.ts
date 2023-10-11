@@ -12,4 +12,9 @@ export interface SettingsInterface {
 export interface MainSettings {
 	font: Fonts;
 	color: Colors;
+	timers: {
+		pomodoro: number;
+		shortBreak: number;
+		longBreak: number;
+	};
 }

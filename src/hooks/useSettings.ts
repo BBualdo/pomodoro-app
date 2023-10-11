@@ -35,6 +35,7 @@ const useSettings = () => {
 	return {
 		color: selectedColor,
 		font: selectedFont,
+		timers: { ...ctx.timers },
 	};
 };
 

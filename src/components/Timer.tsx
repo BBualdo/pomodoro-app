@@ -9,7 +9,7 @@ import { Status } from '../ts/enums';
 
 const Timer = () => {
 	const [status, setStatus] = useState(Status.NOT_STARTED);
-	const { color, font } = useSettings();
+	const { color, font, timers } = useSettings();
 
 	const startPause = () => {
 		if (status === Status.RUNNING) {
@@ -80,7 +80,7 @@ const Timer = () => {
 				<CountdownCircleTimer
 					key={status === Status.FINISHED ? 'Finished' : undefined}
 					isPlaying={status === Status.RUNNING ? true : false}
-					duration={60}
+					duration={timers.pomodoro * 60}
 					colors={color}
 					size={339}
 					onComplete={() => {
