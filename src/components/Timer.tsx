@@ -1,4 +1,4 @@
-import { Key, useState } from 'react';
+import { useState } from 'react';
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
@@ -22,7 +22,7 @@ const Timer = () => {
 		}
 	};
 
-	const Time = (): JSX.Element => {
+	const Time = (props: { remainingTime: number }): JSX.Element => {
 		let hoverClass: string = '';
 		switch (color) {
 			case '#f87070':
@@ -51,10 +51,17 @@ const Timer = () => {
 				buttonText = 'Start';
 		}
 
+		const minutes = String(Math.floor(props.remainingTime / 60)).padStart(
+			2,
+			'0',
+		);
+		const seconds = String(props.remainingTime % 60).padStart(2, '0');
+		const remainingTime = `${minutes}:${seconds}`;
+
 		return (
 			<div className={styles.time__container}>
 				<h1 style={{ fontFamily: font }} className={styles.time}>
-					00:00
+					{remainingTime}
 				</h1>
 				<button
 					onClick={startPause}
@@ -73,7 +80,7 @@ const Timer = () => {
 				<CountdownCircleTimer
 					key={status === Status.FINISHED ? 'Finished' : undefined}
 					isPlaying={status === Status.RUNNING ? true : false}
-					duration={3}
+					duration={60}
 					colors={color}
 					size={339}
 					onComplete={() => {
