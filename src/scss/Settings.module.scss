@@ -1,5 +1,6 @@
 @import './colors.scss';
 @import './fonts.scss';
+@import './mixins.scss';
 
 .image {
 	cursor: pointer;
@@ -46,6 +47,133 @@
 
 		img {
 			cursor: pointer;
+		}
+	}
+
+	.pickers {
+		padding: 0 40px;
+
+		.time__picker {
+			@include picker;
+
+			.inputs {
+				display: flex;
+				// media mobile flex colomn
+				gap: 20px;
+				justify-content: space-between;
+				margin-top: 24px;
+
+				.container {
+					display: flex;
+					flex: 1;
+					flex-direction: column;
+					gap: 8px;
+
+					label {
+						color: $darkNavy;
+						font-size: 12px;
+						opacity: 0.6;
+					}
+
+					input {
+						background-color: $lightGray;
+						border: none;
+						border-radius: 10px;
+						color: $darkNavy;
+						font-family: $kumbh;
+						font-size: 14px;
+						padding: 15px;
+					}
+				}
+			}
+		}
+
+		.font__picker {
+			@include picker;
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+
+			.buttons {
+				align-items: center;
+				display: flex;
+				gap: 16px;
+
+				button {
+					background-color: $lightGray;
+					border: none;
+					border-radius: 100%;
+					cursor: pointer;
+					font-size: 15px;
+					height: 40px;
+					width: 40px;
+				}
+				.kumbh {
+					font-family: $kumbh;
+				}
+
+				.roboto {
+					font-family: $roboto;
+					font-weight: 400;
+				}
+
+				.space {
+					font-family: $space;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.color__picker {
+			@include picker;
+			border-bottom: none;
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+
+			.buttons {
+				align-items: center;
+				display: flex;
+				gap: 16px;
+
+				button {
+					border: none;
+					border-radius: 100%;
+					cursor: pointer;
+					height: 40px;
+					width: 40px;
+				}
+
+				.red {
+					background-color: $red;
+				}
+
+				.cyan {
+					background-color: $cyan;
+				}
+
+				.pink {
+					background-color: $pink;
+				}
+			}
+		}
+	}
+
+	.apply {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		.apply__button {
+			background-color: $red;
+			border: none;
+			border-radius: 26px;
+			color: white;
+			cursor: pointer;
+			font-family: $kumbh;
+			font-size: 16px;
+			padding: 16px 47px;
 		}
 	}
 }

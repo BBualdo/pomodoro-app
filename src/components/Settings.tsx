@@ -16,9 +16,44 @@ const SettingsOverlay = (props: { hideSettings: () => void }) => {
 				<h2>Settings</h2>
 				<img onClick={props.hideSettings} src={xIcon} alt='X' />
 			</div>
-			<div className={styles.time__picker}></div>
-			<div className={styles.font__picker}></div>
-			<div className={styles.color__picker}></div>
+			<div className={styles.pickers}>
+				<div className={styles.time__picker}>
+					<h4>Time (Minutes)</h4>
+					<div className={styles.inputs}>
+						<div className={styles.container}>
+							<label>pomodoro</label>
+							<input type='number' min={1} max={60} defaultValue={25} />
+						</div>
+						<div className={styles.container}>
+							<label>short break</label>
+							<input type='number' min={5} max={15} defaultValue={5} />
+						</div>
+						<div className={styles.container}>
+							<label>long break</label>
+							<input type='number' min={10} max={30} defaultValue={15} />
+						</div>
+					</div>
+				</div>
+				<div className={styles.font__picker}>
+					<h4>Font</h4>
+					<div className={styles.buttons}>
+						<button className={styles.kumbh}>Aa</button>
+						<button className={styles.roboto}>Aa</button>
+						<button className={styles.space}>Aa</button>
+					</div>
+				</div>
+				<div className={styles.color__picker}>
+					<h4>Color</h4>
+					<div className={styles.buttons}>
+						<button className={styles.red}></button>
+						<button className={styles.cyan}></button>
+						<button className={styles.pink}></button>
+					</div>
+				</div>
+			</div>
+			<div className={styles.apply}>
+				<button className={styles.apply__button}>Apply</button>
+			</div>
 		</div>
 	);
 };
