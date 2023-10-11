@@ -32,17 +32,11 @@
 	.time {
 		color: $gray;
 		cursor: default;
-		font-family: $kumbh;
 	}
 
 	.action {
 		color: $gray;
 		cursor: pointer;
-		font-family: $kumbh;
 		transition: color 0.15s ease;
-
-		&:hover {
-			color: $red;
-		}
 	}
 }

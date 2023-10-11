@@ -5,6 +5,7 @@ import Timer from './components/Timer';
 import Settings from './components/Settings';
 import { Colors, Fonts } from './ts/enums';
 import { MainSettings } from './ts/interfaces';
+import SettingsContext from './context/SettingsContext';
 
 function App() {
 	const [settings, setSettings] = useState({
@@ -23,9 +24,11 @@ function App() {
 	return (
 		<Fragment>
 			<Header />
-			<Navbar />
-			<Timer />
-			<Settings settings={settings} updateSettings={updateSettings} />
+			<SettingsContext.Provider value={settings}>
+				<Navbar />
+				<Timer />
+				<Settings settings={settings} updateSettings={updateSettings} />
+			</SettingsContext.Provider>
 		</Fragment>
 	);
 }
