@@ -7,12 +7,15 @@ import { SettingsInterface, MainSettings } from '../ts/interfaces';
 import xIcon from '../assets/icon-close.svg';
 
 import styles from '../scss/Settings.module.scss';
+import useSettings from '../hooks/useSettings';
 
 const Backdrop = () => {
 	return <div className={styles.backdrop} />;
 };
 
 const SettingsOverlay = (props: SettingsInterface) => {
+	const { timers } = useSettings();
+
 	return (
 		<div className={styles.settings}>
 			<div className={styles.header}>
@@ -30,7 +33,8 @@ const SettingsOverlay = (props: SettingsInterface) => {
 								type='number'
 								min={1}
 								max={60}
-								defaultValue={25}
+								defaultValue={timers.pomodoro}
+								ref={props.pomodoroInput}
 							/>
 						</div>
 						<div className={styles.container}>
@@ -40,7 +44,7 @@ const SettingsOverlay = (props: SettingsInterface) => {
 								type='number'
 								min={5}
 								max={15}
-								defaultValue={5}
+								defaultValue={timers.shortBreak}
 							/>
 						</div>
 						<div className={styles.container}>
@@ -50,7 +54,7 @@ const SettingsOverlay = (props: SettingsInterface) => {
 								type='number'
 								min={10}
 								max={30}
-								defaultValue={15}
+								defaultValue={timers.longBreak}
 							/>
 						</div>
 					</div>
@@ -141,11 +145,8 @@ const Settings = (props: {
 	const [showSettings, setShowSettings] = useState(false);
 	const [selectedFont, setSelectedFont] = useState(Fonts.KUMBH);
 	const [selectedColor, setSelectedColor] = useState(Colors.RED);
-	// const [selectedTimers, setSelectedTimers] = useState({
-	// 	pomodoro:,
-	// 	shortBreak:,
-	// 	longBreak:
-	// })
+
+	const pomodoroInput = useRef<HTMLInputElement>();
 
 	const displaySettings = () => {
 		setShowSettings(true);
@@ -169,7 +170,7 @@ const Settings = (props: {
 			font: id1,
 			color: id2,
 			timers: {
-				pomodoro: 25,
+				pomodoro: parseInt(pomodoroInput.current!.value),
 				shortBreak: 5,
 				longBreak: 15,
 			},
@@ -194,6 +195,7 @@ const Settings = (props: {
 						onApply={(id1: Fonts, id2: Colors) =>
 							settingsChangeHandler(id1, id2)
 						}
+						pomodoroInput={pomodoroInput}
 					/>,
 					document.getElementById('overlay')!,
 				)}

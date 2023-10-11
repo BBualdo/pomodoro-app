@@ -85,7 +85,6 @@ const Timer = () => {
 					size={339}
 					onComplete={() => {
 						setStatus(Status.FINISHED);
-						return { shouldRepeat: true, delay: 1 };
 					}}
 					strokeWidth={14}
 					trailStrokeWidth={0}
