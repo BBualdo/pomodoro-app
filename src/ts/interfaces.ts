@@ -21,3 +21,7 @@ export interface MainSettings {
 		longBreak: number;
 	};
 }
+
+export interface TimersTemplateProps {
+	duration: number;
+}
