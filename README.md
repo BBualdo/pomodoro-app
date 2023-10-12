@@ -62,7 +62,9 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 
 Most of all, I'm proud of myself for understanding React Context, Custom Hooks and TypeScript's enums and interfaces 😁
 
-```ts Creating Context
+#### Creating Context
+
+```ts
 import { createContext } from 'react';
 import { Colors, Fonts } from '../ts/enums';
 
@@ -81,7 +83,9 @@ const SettingsContext = createContext(initialState);
 export default SettingsContext;
 ```
 
-```ts Using it in Custom Hook
+#### Using it in Custom Hook
+
+```ts
 import { useContext } from 'react';
 import SettingsContext from '../context/SettingsContext';
 import { ColorFormat } from 'react-countdown-circle-timer';
@@ -126,7 +130,9 @@ const useSettings = () => {
 export default useSettings;
 ```
 
-```tsx Using Custom Hook example
+#### Using Custom Hook example
+
+```tsx
 import useSettings from '../../hooks/useSettings';
 
 //...
