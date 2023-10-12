@@ -80,7 +80,7 @@ const ShortBreak = () => {
 				<CountdownCircleTimer
 					key={status === Status.FINISHED ? 'Finished' : undefined}
 					isPlaying={status === Status.RUNNING ? true : false}
-					duration={timers.pomodoro * 60}
+					duration={timers.shortBreak * 60}
 					colors={color}
 					size={339}
 					onComplete={() => {

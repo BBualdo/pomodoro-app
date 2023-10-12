@@ -45,6 +45,7 @@ const SettingsOverlay = (props: SettingsInterface) => {
 								min={5}
 								max={15}
 								defaultValue={timers.shortBreak}
+								ref={props.shortBreakInput}
 							/>
 						</div>
 						<div className={styles.container}>
@@ -55,6 +56,7 @@ const SettingsOverlay = (props: SettingsInterface) => {
 								min={10}
 								max={30}
 								defaultValue={timers.longBreak}
+								ref={props.longBreakInput}
 							/>
 						</div>
 					</div>
@@ -147,6 +149,8 @@ const Settings = (props: {
 	const [selectedColor, setSelectedColor] = useState(Colors.RED);
 
 	const pomodoroInput = useRef<HTMLInputElement>();
+	const shortBreakInput = useRef<HTMLInputElement>();
+	const longBreakInput = useRef<HTMLInputElement>();
 
 	const displaySettings = () => {
 		setShowSettings(true);
@@ -171,8 +175,8 @@ const Settings = (props: {
 			color: id2,
 			timers: {
 				pomodoro: parseInt(pomodoroInput.current!.value),
-				shortBreak: 5,
-				longBreak: 15,
+				shortBreak: parseInt(shortBreakInput.current!.value),
+				longBreak: parseInt(longBreakInput.current!.value),
 			},
 		});
 	};
@@ -196,6 +200,8 @@ const Settings = (props: {
 							settingsChangeHandler(id1, id2)
 						}
 						pomodoroInput={pomodoroInput}
+						shortBreakInput={shortBreakInput}
+						longBreakInput={longBreakInput}
 					/>,
 					document.getElementById('overlay')!,
 				)}

@@ -8,6 +8,8 @@ export interface SettingsInterface {
 	onColorChange: (id: Colors) => void;
 	onApply: (id1: Fonts, id2: Colors) => void;
 	pomodoroInput: any;
+	shortBreakInput: any;
+	longBreakInput: any;
 }
 
 export interface MainSettings {
