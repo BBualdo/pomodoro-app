@@ -2,6 +2,10 @@
 @import './fonts.scss';
 
 .timer__outer {
+	@media (max-width: 440px) {
+		margin-top: 0;
+		scale: 73%;
+	}
 	align-items: center;
 	background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
 	border-radius: 100%;

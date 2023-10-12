@@ -20,8 +20,6 @@ function App() {
 
 	const [selectedTimer, setSelectedTimer] = useState(Timer.POMODORO);
 
-	console.log(settings);
-
 	const updateTimer = (timer: Timer) => {
 		setSelectedTimer(timer);
 	};

@@ -3,6 +3,9 @@
 @import './mixins.scss';
 
 .navbar {
+	@media (max-width: 440px) {
+		margin-top: 44px;
+	}
 	align-items: center;
 	background-color: $veryDarkNavy;
 	border-radius: 32px;
@@ -13,6 +16,10 @@
 
 	div {
 		@include body1;
+		@media (max-width: 440px) {
+			@include body2;
+			padding: 16px 18px;
+		}
 		border-radius: 26px;
 		cursor: pointer;
 		opacity: 0.4;

@@ -5,4 +5,7 @@
 	color: $gray;
 	font-family: $kumbh;
 	font-size: 32px;
+	@media (max-width: 440px) {
+		font-size: 24px;
+	}
 }
