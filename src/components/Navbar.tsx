@@ -1,16 +1,15 @@
-import { useState } from 'react';
-
 import { Timer } from '../ts/enums';
 import styles from '../scss/Navbar.module.scss';
 import useSettings from '../hooks/useSettings';
 
-const Navbar = () => {
+const Navbar = (props: {
+	timer: Timer;
+	updateTimer: (timer: Timer) => void;
+}) => {
 	const { color, font } = useSettings();
 
-	const [selectedTimer, setSelectedTimer] = useState(Timer.POMODORO);
-
 	const navbarClickHandler = (id: Timer) => {
-		setSelectedTimer(id);
+		props.updateTimer(id);
 	};
 
 	return (
@@ -20,9 +19,9 @@ const Navbar = () => {
 				onClick={() => navbarClickHandler(Timer.POMODORO)}
 				style={{
 					fontFamily: font,
-					background: selectedTimer === Timer.POMODORO ? color : '',
-					opacity: selectedTimer === Timer.POMODORO ? '1' : '',
-					color: selectedTimer === Timer.POMODORO ? '#1e213f' : '',
+					background: props.timer === Timer.POMODORO ? color : '',
+					opacity: props.timer === Timer.POMODORO ? '1' : '',
+					color: props.timer === Timer.POMODORO ? '#1e213f' : '',
 				}}
 			>
 				pomodoro
@@ -32,9 +31,9 @@ const Navbar = () => {
 				onClick={() => navbarClickHandler(Timer.SHORT_BREAK)}
 				style={{
 					fontFamily: font,
-					background: selectedTimer === Timer.SHORT_BREAK ? color : '',
-					opacity: selectedTimer === Timer.SHORT_BREAK ? '1' : '',
-					color: selectedTimer === Timer.SHORT_BREAK ? '#1e213f' : '',
+					background: props.timer === Timer.SHORT_BREAK ? color : '',
+					opacity: props.timer === Timer.SHORT_BREAK ? '1' : '',
+					color: props.timer === Timer.SHORT_BREAK ? '#1e213f' : '',
 				}}
 			>
 				short break
@@ -44,9 +43,9 @@ const Navbar = () => {
 				onClick={() => navbarClickHandler(Timer.LONG_BREAK)}
 				style={{
 					fontFamily: font,
-					background: selectedTimer === Timer.LONG_BREAK ? color : '',
-					opacity: selectedTimer === Timer.LONG_BREAK ? '1' : '',
-					color: selectedTimer === Timer.LONG_BREAK ? '#1e213f' : '',
+					background: props.timer === Timer.LONG_BREAK ? color : '',
+					opacity: props.timer === Timer.LONG_BREAK ? '1' : '',
+					color: props.timer === Timer.LONG_BREAK ? '#1e213f' : '',
 				}}
 			>
 				long break
