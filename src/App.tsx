@@ -35,7 +35,7 @@ function App() {
 			<Header />
 			<SettingsContext.Provider value={settings}>
 				<Navbar timer={selectedTimer} updateTimer={updateTimer} />
-				<Timers />
+				<Timers timer={selectedTimer} />
 				<Settings settings={settings} updateSettings={updateSettings} />
 			</SettingsContext.Provider>
 		</Fragment>

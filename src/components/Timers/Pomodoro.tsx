@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
-import styles from '../scss/Timers.module.scss';
+import styles from '../../scss/Timers.module.scss';
 
 import useSettings from '../../hooks/useSettings';
 import { Status } from '../../ts/enums';

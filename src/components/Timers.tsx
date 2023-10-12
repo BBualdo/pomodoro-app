@@ -1,28 +1,18 @@
-import { useState } from 'react';
+import { Fragment } from 'react';
 
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { Timer } from '../ts/enums';
+import Pomodoro from './Timers/Pomodoro';
+import ShortBreak from './Timers/ShortBreak';
+import LongBreak from './Timers/LongBreak';
 
-import styles from '../scss/Timers.module.scss';
-
-import useSettings from '../hooks/useSettings';
-import { Status } from '../ts/enums';
-
-const Timers = () => {
-	const [status, setStatus] = useState(Status.NOT_STARTED);
-	const { color, font, timers } = useSettings();
-
-	const startPause = () => {
-		if (status === Status.RUNNING) {
-			setStatus(Status.PAUSED);
-		} else if (status === Status.FINISHED) {
-			setStatus(Status.NOT_STARTED);
-			setStatus(Status.RUNNING);
-		} else {
-			setStatus(Status.RUNNING);
-		}
-	};
-
-	return <div></div>;
+const Timers = (props: { timer: Timer }) => {
+	return (
+		<Fragment>
+			{props.timer === Timer.POMODORO && <Pomodoro />}
+			{props.timer === Timer.SHORT_BREAK && <ShortBreak />}
+			{props.timer === Timer.LONG_BREAK && <LongBreak />}
+		</Fragment>
+	);
 };
 
 export default Timers;
