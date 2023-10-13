@@ -24,4 +24,5 @@ export interface MainSettings {
 
 export interface TimersTemplateProps {
 	duration: number;
+	timerName: string;
 }

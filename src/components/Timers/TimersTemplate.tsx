@@ -8,12 +8,20 @@ import useSettings from '../../hooks/useSettings';
 import { Status } from '../../ts/enums';
 import { TimersTemplateProps } from '../../ts/interfaces';
 
-const TimersTemplate = ({ duration }: TimersTemplateProps) => {
+const TimersTemplate = ({ duration, timerName }: TimersTemplateProps) => {
 	const [status, setStatus] = useState(Status.NOT_STARTED);
 	const { color, font } = useSettings();
 
 	const startPause = () => {
-		if (status === Status.RUNNING) {
+		if (status === Status.NOT_STARTED) {
+			Notification.requestPermission().then((perm) => {
+				if (perm === 'granted') {
+					setStatus(Status.RUNNING);
+				} else {
+					setStatus(Status.RUNNING);
+				}
+			});
+		} else if (status === Status.RUNNING) {
 			setStatus(Status.PAUSED);
 		} else if (status === Status.FINISHED) {
 			setStatus(Status.NOT_STARTED);
@@ -86,6 +94,7 @@ const TimersTemplate = ({ duration }: TimersTemplateProps) => {
 					size={339}
 					onComplete={() => {
 						setStatus(Status.FINISHED);
+						new Notification(`${timerName} is over!`);
 					}}
 					strokeWidth={14}
 					trailStrokeWidth={0}

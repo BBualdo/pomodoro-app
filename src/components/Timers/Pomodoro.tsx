@@ -5,7 +5,7 @@ import TimersTemplate from './TimersTemplate';
 const Pomodoro = () => {
 	const { timers } = useSettings();
 
-	return <TimersTemplate duration={timers.pomodoro} />;
+	return <TimersTemplate duration={timers.pomodoro} timerName='Pomodoro' />;
 };
 
 export default Pomodoro;
